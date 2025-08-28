@@ -1,0 +1,78 @@
+body {
+    background-color: darkgray;
+    min-height: 100vh;
+    background: 
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/bg_1.eps') center/cover no-repeat;
+    margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text); background:var(--bg);
+      line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+
+img {
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+}
+
+#grad {
+    background-image: linear-gradient(white, darkgray);
+}
+
+:root {
+    --navy:#0B1D2C;
+    --navy2: #343c4f;
+    --slate:#5A6370;
+    --white:#ECEFF1;
+    --accent:#D47426;
+    --silver:#B2BABB;
+    --bg:#0B1D2C;
+    --text:#ECEFF1;
+}
+
+html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+
+.container{width:min(1100px, 92vw); margin-inline:auto}
+
+ header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px);
+      background:color-mix(in oklab, var(--navy) 85%, transparent);
+      border-bottom:1px solid color-mix(in oklab, var(--white) 10%, transparent)
+    }
+
+.text-box {
+  background-color: var(--navy2);   /* box background */
+  color: #617dba; /*#1c1f26;              /* text color */
+  padding: 20px;               /* space inside the box */
+  margin: 20px auto;           /* space outside the box */
+  max-width: 600px;            /* width limit so it looks neat */
+  border-radius: 12px;         /* rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* soft shadow */
+  
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 50%;*/
+}
+
+.project-container {
+
+
+}

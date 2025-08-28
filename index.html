@@ -1,12 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            /*filter: brightness(40%);*/
+            position: relative;
+            /*background: #b7c7b299 url('images/bg_2.jpg');7*/
+            background: 
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.8)), /* Sätter en go fade från mörk till mörkare på bakgrunden. */
+                url("images/bg_2.jpg") center/cover no-repeat;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode: darken;
+            height: 100vh; /* for hover to work */
+            
+        }
+        body:hover {
+            background-blend-mode: initial;
+        }
+    </style>
+    <label class="theme-switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+    </label>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Engineering Portfolio
+    </title>
 </head>
+
 <body>
-  <h1>Hello, I’m Åke!</h1>
-  <p>Welcome to my engineering portfolio.</p>
-  <p>The page is very much under construction as I am trying to learn how to build it.</p>
+    <div class="text-box">
+        <h1>Hello, I'm Åke. Welcome to my engineering portfolio and website.</h1>
+        <p>I will use this page to display and explain my projects regarding engineering, design, and potentially other topics.</p>
+
+        <p>As I am learning how to write HTML, CSS and Javascript, this page will also be purposed as my learning tool. Therefore, the page will probably not be visibly pleasant for a while.</p>
+    </div>
+
+    <div class="text-box">
+        <h2>Reading this? Congratulations, you will soon be able to see my notsomuchtoshowfor-projects</h2>
+        <p> I will try to make this to make this my standardized project card.</p>
+
+        <p>Here's an image of a  small table lamp I printed to test the transparency of "transparent" PETG filament.</p>
+        <img src="images/flowerlamp.jfif" width="125" height="125" alt="Flower Lamp" class="center">
+
+    </div>
+
+    <div class="text-box">
+        <div class="hero-inner">
+            <p class="projects">Trying to figure out how to make things look neat</p>
+        </div>
+    </div>
+    
 </body>
 
 </html>
