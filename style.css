@@ -1,11 +1,36 @@
 body {
-    background-color: darkgray;
-    min-height: 100vh;
-    background: 
-        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/bg_1.eps') center/cover no-repeat;
-    margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      color:var(--text); background:var(--bg);
-      line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+        background-color: darkgray;
+        min-height: 100vh;
+        /*background: 
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/bg_3_own.png') center/cover no-repeat;*/
+        margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+        color:var(--text); background:var(--bg);
+        line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+        transition: background-color 1s ease-in-out;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        
+    }
+
+/* Default */
+/*body {
+  background: white;
+  color: black;
+}*/
+
+/* Dark mode */
+body.dark-mode {
+  background: #111;
+  color: #eee;
+}
+
+section {
+    height: 100vh;
+    width: 100vw;
+
     }
 
 img {
@@ -29,13 +54,48 @@ p {
     font-size: 15px;
 }
 
+.button2 {background-color: rgb(209, 90, 10);}
+
+/* LÅNGSAM SCROLL I BAKGRUNDEN */
+.parallax {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.8)), /* Sätter en go fade från mörk till mörkare på bakgrunden. */
+                url("images/bg_3_own.png") center/cover no-repeat;
+  transform: translateY(-20%); /* starts shifted up */
+  will-change: transform;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 1;
+  padding: 50px;
+  color: white;
+}
+
+/*------*/
+
+.box {
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
 #grad {
     background-image: linear-gradient(white, darkgray);
 }
 
 :root {
     --navy:#0B1D2C;
-    --navy2: #343c4f;
+    --navy2: #172544;
     --slate:#5A6370;
     --white:#ECEFF1;
     --accent:#D47426;
@@ -47,16 +107,54 @@ p {
 html{scroll-behavior:smooth}
     *{box-sizing:border-box}
 
+    /* --- Layout helpers --- */
 .container{width:min(1100px, 92vw); margin-inline:auto}
+.grid{display:grid; gap:1.25rem}
+.btn{display:inline-block; padding:.75rem 1rem; border-radius:14px; text-decoration:none; font-weight:600}
+.btn-accent{background:var(--accent); color:white}
+.btn-ghost{outline:1px solid color-mix(in oklab, var(--white) 25%, transparent); color:var(--white)}
+.badge{display:inline-flex; gap:.5rem; align-items:center; padding:.375rem .625rem; border-radius:999px; font-size:.8125rem; color:var(--white); background:color-mix(in oklab, var(--slate) 35%, transparent)}
 
- header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px);
+.projects{grid-template-columns:repeat(12, 1fr)}
+.project-card{
+    grid-column:span 6; padding:1rem; border-radius:18px; position:relative;
+    border:1px solid color-mix(in oklab, var(--white) 10%, transparent);
+    background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+    overflow:hidden
+}
+.project-media{aspect-ratio:16/10; border-radius:12px; overflow:hidden; display:grid; place-items:center; background:
+    radial-gradient(400px 200px at 80% 10%, color-mix(in oklab, var(--accent) 20%, transparent), transparent 60%),
+    linear-gradient(135deg, color-mix(in oklab, var(--navy) 85%, black), color-mix(in oklab, var(--navy) 65%, black));
+    border:1px solid color-mix(in oklab, var(--white) 12%, transparent)
+}
+.project-media svg{width:72%; max-width:520px; opacity:.9}
+.project-meta{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-top:.8rem}
+.tags{display:flex; gap:.5rem; flex-wrap:wrap}
+
+/* --- About --- */
+.about{display:grid; grid-template-columns:1fr 1fr; gap:2rem}
+.about-card{border-radius:18px; padding:1.25rem; border:1px solid color-mix(in oklab, var(--white) 10%, transparent); background:rgba(255,255,255,.02)}
+
+section{padding:clamp(2.25rem, 6vw, 4.5rem) 0}
+h2{font-size:clamp(1.4rem, 2.4vw + .5rem, 2.25rem); margin:0 0 1rem}
+.sub{color:var(--silver)}
+
+header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px);
       background:color-mix(in oklab, var(--navy) 85%, transparent);
       border-bottom:1px solid color-mix(in oklab, var(--white) 10%, transparent)
-    }
+}
+
+/* --- Responsive --- */
+ @media (max-width: 900px){
+    .hero-inner{grid-template-columns:1fr; gap:1.25rem}
+    .kpis{grid-template-columns:1fr}
+    .projects .project-card{grid-column:span 12}
+    .about{grid-template-columns:1fr}
+}
 
 .text-box {
   background-color: var(--navy2);   /* box background */
-  color: #617dba; /*#1c1f26;              /* text color */
+  color: rgb(27, 86, 74); /*#617dba; /*#1c1f26;              /* text color */
   padding: 20px;               /* space inside the box */
   margin: 20px auto;           /* space outside the box */
   max-width: 600px;            /* width limit so it looks neat */

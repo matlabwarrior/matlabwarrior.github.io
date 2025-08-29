@@ -2,58 +2,164 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
+    <!--<link rel="script" href="script.js">-->
     <style>
-        body {
-            /*filter: brightness(40%);*/
+        /*body {
             position: relative;
-            /*background: #b7c7b299 url('images/bg_2.jpg');7*/
             background: 
-                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.8)), /* Sätter en go fade från mörk till mörkare på bakgrunden. */
-                url("images/bg_2.jpg") center/cover no-repeat;
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.8)), url("images/bg_3_own.png") center/cover no-repeat;
+            background-color: #2e426d;
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
             background-blend-mode: darken;
             height: 100vh; /* for hover to work */
             
-        }
+        /*}*/
+
         body:hover {
             background-blend-mode: initial;
         }
     </style>
-    <label class="theme-switch">
+    <!--<label class="theme-switch">
         <input type="checkbox" id="theme-toggle">
         <span class="slider"></span>
-    </label>
+    </label>-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Engineering Portfolio
-    </title>
+    <title>My Engineering Portfolio</title>
 </head>
 
 <body>
+    <header>
+        <div class="container nav">
+            <a class="brand" href="#top" aria-label="Home">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <span>Precision | Quality | Design</span>
+            </a>
+            <div class="nav-links" role="navigation" aria-label="Main">
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#contact" class="btn btn-accent">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- First picture of me with a hero title and a box saying "see my projects" -->
+    <section id="hero" data-color="rgb(185, 187, 189)" data-parallax="3">
+ 
+        <div class="parallax">
+            <div class="parallax-bg"></div>
+            <div class="parallax-content">
+
+                <div class="text-box">
+
+                    <h1>Hello, I'm Åke. Welcome to my engineering portfolio and website.</h1>
+                    <p>I will use this page to display and explain my projects regarding engineering, design, and potentially other topics.</p>
+
+                    <p>As I am learning how to write HTML, CSS and Javascript, this page will also be purposed as my learning tool. Therefore, the page will probably not be visibly pleasant for a while.</p>
+                    <button class="button button2 center"> Feel free to scroll down and see my projects. </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="text-box">
+            <h2>Reading this? Congratulations, you will soon be able to see my notsomuchtoshowfor-projects</h2>
+            <p> I will try to make this to make this my standardized project card.</p>
+
+            <p>Here's an image of a  small table lamp I printed to test the transparency of "transparent" PETG filament.</p>
+        </div>
+    </section>
+
     <div class="text-box">
-        <h1>Hello, I'm Åke. Welcome to my engineering portfolio and website.</h1>
-        <p>I will use this page to display and explain my projects regarding engineering, design, and potentially other topics.</p>
-
-        <p>As I am learning how to write HTML, CSS and Javascript, this page will also be purposed as my learning tool. Therefore, the page will probably not be visibly pleasant for a while.</p>
-    </div>
-
-    <div class="text-box">
-        <h2>Reading this? Congratulations, you will soon be able to see my notsomuchtoshowfor-projects</h2>
-        <p> I will try to make this to make this my standardized project card.</p>
-
-        <p>Here's an image of a  small table lamp I printed to test the transparency of "transparent" PETG filament.</p>
-        <img src="images/flowerlamp.jfif" width="125" height="125" alt="Flower Lamp" class="center">
-
-    </div>
-
-    <div class="text-box">
+        <!--<div class="parallax-bg"></div>-->
         <div class="hero-inner">
             <p class="projects">Trying to figure out how to make things look neat</p>
         </div>
     </div>
+    <!-- Projects -->
+    <section id="projects">
+
+      <div class="container">
+        <h2>Selected Projects</h2>
+        <p class="sub">A few representative case studies. Replace the SVGs with renders/photos or keep them as abstract technical placeholders.</p>
+        <div class="grid projects" style="margin-top:1rem">
+
+            <!-- Project 1 -->
+            
+            <article class="project-card">
+                    
+                    <div class="project-media" aria-hidden="true">
+                        
+                        <defs>
+                            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#B2BABB" />
+                            <stop offset="100%" stop-color="#ECEFF1" />
+                            </linearGradient>
+                                <div class="project-meta">
+                                    <div>
+                                    <h3 style="margin:.50rem 1.50rem">Coffee Table Flower Lamp</h3>
+                                    <img src="images/flowerlamp-bggone.png" width="200" height="200" alt="Flower Lamp" class="center">
+                                    <p class="sub" style="margin:.50rem 1.50rem 0">Parametric model + UI prototype for tolerance analysis.</p>
+                                    </div>
+                                    <div class="tags">
+                                    <span class="badge">CAD</span>
+                                    <span class="badge">UI</span>
+                                    <span class="badge">Manufacturing</span>
+                                </div>
+                            </div>
+                        </defs>
+                        <g fill="none" stroke="url(#g1)" opacity=".9">
+                            <rect x="40" y="30" width="520" height="300" rx="8" ry="8" opacity=".25" />
+                            <path d="M60 60h480M60 120h480M60 180h480M60 240h480M60 300h480" opacity=".2" />
+                            <circle cx="300" cy="180" r="90" stroke-width="2" />
+                            <circle cx="300" cy="180" r="60" stroke-width="1.5" />
+                            <circle cx="300" cy="180" r="30" stroke-width="1.5" />
+                            <path d="M210 180H390M300 90V270" stroke-width="1.2" />
+                        </g>
+                        <!--</svg>-->
+                    </div>
+                
+                <div class="project-meta">
+                    <div>
+                    <h3 style="margin:.25rem 0">Coffee Table Flower Lamp</h3>
+                    <img src="images/flowerlamp-bggone.png" width="200" height="200" alt="Flower Lamp" class="center">
+                    <p class="sub" style="margin:.25rem 0 0">Parametric model + UI prototype for tolerance analysis.</p>
+                    </div>
+                    <div class="tags">
+                    <span class="badge">CAD</span>
+                    <span class="badge">UI</span>
+                    <span class="badge">Manufacturing</span>
+                    </div>
+                </div>
+            </article>
+
+            </div>
+        </div>
+    </section>
+
+
+
+        <section id="about">
+            <div class="container about">
+                <div class="about-card">
+                    <h2>About test</h2>
+                    <p>I try to make a nice box</p>
+                </div>
+            </div>
+        </section>
     
+    
+    <footer> 
+        <div class="containter" style="display: flex; justify-content:space-between; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <small> © <span id="year"></span> Åke Sterning - All rights reserved </small>
+            <small>Built with HTML & CSS • Hosted on GitHub Pages</small>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
