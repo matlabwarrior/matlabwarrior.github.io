@@ -2,24 +2,8 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
-    <!--<link rel="script" href="script.js">-->
     <style>
-        /*body {
-            position: relative;
-            background: 
-                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.8)), url("images/bg_3_own.png") center/cover no-repeat;
-            background-color: #2e426d;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-            background-blend-mode: darken;
-            height: 100vh; /* for hover to work */
-            
-        /*}*/
-
-        body:hover {
-            background-blend-mode: initial;
-        }
+        
     </style>
     <!--<label class="theme-switch">
         <input type="checkbox" id="theme-toggle">
@@ -32,7 +16,7 @@
 
 <body>
     <header>
-        <div class="container nav">
+        <div class="container2 nav">
             <a class="brand" href="#top" aria-label="Home">
                 <span class="brand-mark" aria-hidden="true"></span>
                 <span>Precision | Quality | Design</span>
@@ -40,7 +24,8 @@
             <div class="nav-links" role="navigation" aria-label="Main">
                 <a href="#projects">Projects</a>
                 <a href="#about">About</a>
-                <a href="#contact" class="btn btn-accent">Contact</a>
+                <a href="#status">Status</a>
+                <!--<a href="#contact" class="btn btn-accent">Contact</a>-->
             </div>
         </div>
     </header>
@@ -57,58 +42,59 @@
                     <h1>Hello, I'm Åke. Welcome to my engineering portfolio and website.</h1>
                     <p>I will use this page to display and explain my projects regarding engineering, design, and potentially other topics.</p>
 
-                    <p>As I am learning how to write HTML, CSS and Javascript, this page will also be purposed as my learning tool. Therefore, the page will probably not be visibly pleasant for a while.</p>
-                    <button class="button button2 center"> Feel free to scroll down and see my projects. </button>
+                    
+                    <button class="button button2 center btn btn-accent">  
+                        <a href="#projects">See my projects.</a>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
+    <!--<section>
         <div class="text-box">
             <h2>Reading this? Congratulations, you will soon be able to see my notsomuchtoshowfor-projects</h2>
             <p> I will try to make this to make this my standardized project card.</p>
 
             <p>Here's an image of a  small table lamp I printed to test the transparency of "transparent" PETG filament.</p>
         </div>
-    </section>
+    </section>-->
 
-    <div class="text-box">
-        <!--<div class="parallax-bg"></div>-->
+<!--<div class="text-box">
         <div class="hero-inner">
             <p class="projects">Trying to figure out how to make things look neat</p>
         </div>
     </div>
+-->    
     <!-- Projects -->
     <section id="projects">
 
       <div class="container">
         <h2>Selected Projects</h2>
-        <p class="sub">A few representative case studies.</p>
+        <p class="sub">Example projects.</p>
         <div class="grid projects" style="margin-top:1rem">
 
             <!-- Project 1 -->
             
             <article class="project-card">
-                    
                     <div class="project-media" aria-hidden="true">
-                        
                         <defs>
                             <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
                             <stop offset="0%" stop-color="#B2BABB" />
                             <stop offset="100%" stop-color="#ECEFF1" />
-                            </linearGradient>
-                                <div class="project-meta">
-                                    <div>
-                                    <h3 style="margin:.50rem 1.50rem">Coffee Table Flower Lamp</h3>
-                                    <img src="images/flowerlamp.jpeg" width="200" height="200" alt="Flower Lamp" class="center">
-                                    <p class="sub" style="margin:.50rem 1.50rem 0">Parametric model + 3D prototype for transparency analysis.</p>
+                            <!--</linearGradient>-->
+                                <div class="project-meta center">
+                                    <div class="center">
+                                        <h3 class="center" style="margin:.50rem 1.50rem">Coffee Table Flower Lamp</h3>
+                                        <img src="images/flowerlamp-removebg-preview.png" width="180" height="180" alt="Flower Lamp" class="center">
+                                        <p class="sub" style="margin:.50rem 1.50rem 0">Test: Parametric model + 3D prototype for transparency analysis.</p>
+                                        
                                     </div>
-                                    <div class="tags">
-                                    <span class="badge">CAD</span>
-                                    <span class="badge">Prototype</span>
-                                    <span class="badge">Manufacturing</span>
-                                </div>
+                                    <!--<div class="tags">
+                                        <span class="badge">CAD</span>
+                                        <span class="badge">Prototyping</span>
+                                        <span class="badge">Manufacturing</span>
+                                    </div>-->
                             </div>
                         </defs>
                         <g fill="none" stroke="url(#g1)" opacity=".9">
@@ -119,34 +105,83 @@
                             <circle cx="300" cy="180" r="30" stroke-width="1.5" />
                             <path d="M210 180H390M300 90V270" stroke-width="1.2" />
                         </g>
-                        <!--</svg>-->
                     </div>
                 
-                <!--<div class="project-meta">
-                    <div>
-                    <h3 style="margin:.25rem 0">Coffee Table Flower Lamp</h3>
-                    <img src="images/flowerlamp-bggone.png" width="200" height="200" alt="Flower Lamp" class="center">
-                    <p class="sub" style="margin:.25rem 0 0">Parametric model + UI prototype for tolerance analysis.</p>
-                    </div>
+                <div class="project-meta justify-content:space-between">
                     <div class="tags">
                     <span class="badge">CAD</span>
-                    <span class="badge">UI</span>
+                    <span class="badge">Prototyping</span>
                     <span class="badge">Manufacturing</span>
                     </div>
-                </div>-->
+                    
+                </div>
+                <p class="center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et tempora sit temporibus labore repellendus id voluptates unde quia soluta itaque, pariatur quae nam explicabo nisi sed corrupti nihil asperiores ex.</p>
+                <p class="sub" style="margin:.50rem 1.50rem 0">Drawing:</p>
+                <img src="images/test.png" width="190" height="190" alt="Lamp drawing" class="center">
+            </article>
+
+
+            <!-- Project 2 -->
+            
+            <article class="project-card">
+                    <div class="project-media" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#B2BABB" />
+                            <stop offset="100%" stop-color="#ECEFF1" />
+                            <!--</linearGradient>-->
+                                <div class="project-meta center">
+                                    <div>
+                                        <h3 style="margin:.50rem 1.50rem">Basic Arduino Sonar Setup</h3>
+                                        <img src="images/sonar.png" width="190" height="190" alt="Sonar Setup" class="center">
+                                        <p class="sub" style="margin:.50rem 1.50rem 0">Test: Overview of connected sonar setup.</p>
+                                    </div>
+                            </div>
+                        </defs>
+                        <g fill="none" stroke="url(#g1)" opacity=".9">
+                            <rect x="40" y="30" width="520" height="300" rx="8" ry="8" opacity=".25" />
+                            <path d="M60 60h480M60 120h480M60 180h480M60 240h480M60 300h480" opacity=".2" />
+                            <circle cx="300" cy="180" r="90" stroke-width="2" />
+                            <circle cx="300" cy="180" r="60" stroke-width="1.5" />
+                            <circle cx="300" cy="180" r="30" stroke-width="1.5" />
+                            <path d="M210 180H390M300 90V270" stroke-width="1.2" />
+                        </g>
+                    </div>
+                
+                <div class="project-meta justify-content:space-between">
+                    <div class="tags">
+                    <span class="badge">Electrical</span>
+                    <span class="badge">RF</span>
+                    <span class="badge">Prototyping</span>
+                    </div>
+                    
+                </div>
+                <p class="center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est omnis ducimus quo eaque reprehenderit corrupti dolores laboriosam incidunt! Eaque, adipisci quasi culpa molestias ad quis deserunt mollitia a accusamus iste.</p>
+                <p class="sub" style="margin:.50rem 1.50rem 0">Electrical schematics:</p>
+                <img src="images/test.png" width="190" height="190" alt="Wiring scheme" class="center">
             </article>
 
             </div>
         </div>
+        
+    </section>
+        <div id="about">
+            <div class="container2 about center">
+                <div class="about-card">
+                    <h2>About</h2>
+                    <p>As I am learning how to write HTML, CSS and Javascript, this page will also be purposed as my learning tool. Therefore, the page will probably not be visibly pleasant for a while.</p>
+                    <p>I will try to make everything myself to learn as much as possible and document the status as I go.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-
-
-        <section id="about">
-            <div class="container about">
+        <section>
+            <div class="container2 center" id="status">
                 <div class="about-card">
-                    <h2>About test</h2>
-                    <p>I try to make a nice box</p>
+                    <h2>Website development status</h2>
+                    <p>Currently, I am trying to understand and create a nice layout for the project cards and so that they can expand when one clicks on them.</p>
+                    <p>I am happy that the parallax effect works for the background, however now I want to make more advanced things with it, like an inverted version with white and blue for the light theme version of the page.</p>
                 </div>
             </div>
         </section>
@@ -161,6 +196,5 @@
 
     <script src="script.js"></script>
 </body>
-
 
 </html>
