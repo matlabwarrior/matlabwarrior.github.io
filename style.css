@@ -13,8 +13,12 @@ body {
         align-items: center;
         flex-wrap: wrap;
         
+        
     }
 
+body:hover {
+        background-blend-mode: initial;
+            }
 /* Default */
 /*body {
   background: white;
@@ -108,7 +112,8 @@ html{scroll-behavior:smooth}
     *{box-sizing:border-box}
 
     /* --- Layout helpers --- */
-.container{width:min(1100px, 92vw); margin-inline:auto}
+.container{width:min(1100px, 92vw); margin-inline:auto; height: 65vh;}
+.container2{width:min(1100px, 92vw); margin-inline:auto}
 .grid{display:grid; gap:1.25rem}
 .btn{display:inline-block; padding:.75rem 1rem; border-radius:14px; text-decoration:none; font-weight:600}
 .btn-accent{background:var(--accent); color:white}
