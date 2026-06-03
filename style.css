@@ -1,181 +1,733 @@
-body {
-        background-color: darkgray;
-        min-height: 100vh;
-        /*background: 
-        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/bg_3_own.png') center/cover no-repeat;*/
-        margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-        color:var(--text); background:var(--bg);
-        line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-        transition: background-color 1s ease-in-out;
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-        
-        
-    }
+/* ================================================================
+   PORTFOLIO STYLESHEET
+   Structure:
+     1. Design tokens (CSS variables)
+     2. Reset & base
+     3. Navigation
+     4. Hero
+     5. Shared section styles
+     6. Skills
+     7. Experience & Education cards
+     8. Projects grid
+     9. Modal
+    10. Contact
+    11. Footer
+    12. Animations
+    13. Responsive (mobile)
+================================================================ */
 
-body:hover {
-        background-blend-mode: initial;
-            }
-/* Default */
-/*body {
-  background: white;
-  color: black;
-}*/
 
-/* Dark mode */
-body.dark-mode {
-  background: #111;
-  color: #eee;
+/* ----------------------------------------------------------------
+   1. DESIGN TOKENS
+   Change these variables to retheme the entire site instantly.
+---------------------------------------------------------------- */
+:root {
+  /* Colors — dark minimal theme */
+  --color-bg:         #111214;   /* page background — near-black */
+  --color-bg-alt:     #16181b;   /* alternate section background — slightly lighter */
+  --color-surface:    #1e2025;   /* cards, modal */
+  --color-border:     #2a2d33;   /* subtle borders */
+  --color-text:       #e8e9eb;   /* primary text — soft white */
+  --color-text-muted: #6b7280;   /* secondary text — cool grey */
+  --color-accent:     #788574;   /* links, highlights — muted mint */
+  --color-accent-hover: #697565; /* slightly deeper mint for hover */
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;  /* headings */
+  --font-body:    'Lato', Helvetica, Arial, sans-serif; /* body text */
+
+  /* Spacing scale */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.75rem;
+  --space-lg:  3rem;
+  --space-xl:  5rem;
+
+  /* Misc */
+  --radius:        8px;
+  --radius-lg:     16px;
+  --shadow-card:   0 2px 12px rgba(0, 0, 0, 0.3);
+  --shadow-modal:  0 8px 40px rgba(0, 0, 0, 0.6);
+  --transition:    0.2s ease;
+  --nav-height:    64px;
 }
 
-section {
-    height: 100vh;
-    width: 100vw;
 
-    }
+/* ----------------------------------------------------------------
+   2. RESET & BASE
+---------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Smooth scrolling for nav links */
+  scroll-behavior: smooth;
+  /* Offset scroll targets so they aren't hidden behind the sticky nav */
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
 
 img {
-    text-align: center;
-}
-
-h1 {
-    color: white;
-    text-align: center;
-}
-
-h2 {
-    color: white;
-    text-align: center;
-}
-
-p {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    color: white;
-    font-size: 15px;
-}
-
-.button2 {background-color: rgb(209, 90, 10);}
-
-/* LÅNGSAM SCROLL I BAKGRUNDEN */
-.parallax {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.parallax-bg {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.8)), /* Sätter en go fade från mörk till mörkare på bakgrunden. */
-                url("images/bg_3_own.png") center/cover no-repeat;
-  transform: translateY(-20%); /* starts shifted up */
-  will-change: transform;
-}
-
-.parallax-content {
-  position: relative;
-  z-index: 1;
-  padding: 50px;
-  color: white;
-}
-
-/*------*/
-
-.box {
-  width: 200px;
-  height: 100px;
-  border: 1px solid black;
-  padding: 10px;
-  margin: 10px;
-}
-
-#grad {
-    background-image: linear-gradient(white, darkgray);
-}
-
-:root {
-    --navy:#0B1D2C;
-    --navy2: #172544;
-    --slate:#5A6370;
-    --white:#ECEFF1;
-    --accent:#D47426;
-    --silver:#B2BABB;
-    --bg:#0B1D2C;
-    --text:#ECEFF1;
-}
-
-html{scroll-behavior:smooth}
-    *{box-sizing:border-box}
-
-    /* --- Layout helpers --- */
-.container{width:min(1100px, 92vw); margin-inline:auto; height: 65vh;}
-.container2{width:min(1100px, 92vw); margin-inline:auto}
-.grid{display:grid; gap:1.25rem}
-.btn{display:inline-block; padding:.75rem 1rem; border-radius:14px; text-decoration:none; font-weight:600}
-.btn-accent{background:var(--accent); color:white}
-.btn-ghost{outline:1px solid color-mix(in oklab, var(--white) 25%, transparent); color:var(--white)}
-.badge{display:inline-flex; gap:.5rem; align-items:center; padding:.375rem .625rem; border-radius:999px; font-size:.8125rem; color:var(--white); background:color-mix(in oklab, var(--slate) 35%, transparent)}
-
-.projects{grid-template-columns:repeat(12, 1fr)}
-.project-card{
-    grid-column:span 6; padding:1rem; border-radius:18px; position:relative;
-    border:1px solid color-mix(in oklab, var(--white) 10%, transparent);
-    background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-    overflow:hidden
-}
-.project-media{aspect-ratio:16/10; border-radius:12px; overflow:hidden; display:grid; place-items:center; background:
-    radial-gradient(400px 200px at 80% 10%, color-mix(in oklab, var(--accent) 20%, transparent), transparent 60%),
-    linear-gradient(135deg, color-mix(in oklab, var(--navy) 85%, black), color-mix(in oklab, var(--navy) 65%, black));
-    border:1px solid color-mix(in oklab, var(--white) 12%, transparent)
-}
-.project-media svg{width:72%; max-width:520px; opacity:.9}
-.project-meta{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-top:.8rem}
-.tags{display:flex; gap:.5rem; flex-wrap:wrap}
-
-/* --- About --- */
-.about{display:grid; grid-template-columns:1fr 1fr; gap:2rem}
-.about-card{border-radius:18px; padding:1.25rem; border:1px solid color-mix(in oklab, var(--white) 10%, transparent); background:rgba(255,255,255,.02)}
-
-section{padding:clamp(2.25rem, 6vw, 4.5rem) 0}
-h2{font-size:clamp(1.4rem, 2.4vw + .5rem, 2.25rem); margin:0 0 1rem}
-.sub{color:var(--silver)}
-
-header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px);
-      background:color-mix(in oklab, var(--navy) 85%, transparent);
-      border-bottom:1px solid color-mix(in oklab, var(--white) 10%, transparent)
-}
-
-/* --- Responsive --- */
- @media (max-width: 900px){
-    .hero-inner{grid-template-columns:1fr; gap:1.25rem}
-    .kpis{grid-template-columns:1fr}
-    .projects .project-card{grid-column:span 12}
-    .about{grid-template-columns:1fr}
-}
-
-.text-box {
-  background-color: var(--navy2);   /* box background */
-  color: rgb(27, 86, 74); /*#617dba; /*#1c1f26;              /* text color */
-  padding: 20px;               /* space inside the box */
-  margin: 20px auto;           /* space outside the box */
-  max-width: 600px;            /* width limit so it looks neat */
-  border-radius: 12px;         /* rounded corners */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* soft shadow */
-  
-}
-
-.center {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /*width: 50%;*/
+  max-width: 100%;
 }
 
-.project-container {
-
-
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition);
 }
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* ----------------------------------------------------------------
+   3. NAVIGATION
+---------------------------------------------------------------- */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background: rgba(17, 18, 20, 0.92);   /* matches --color-bg */
+  backdrop-filter: blur(8px);            /* frosted-glass effect */
+  border-bottom: 1px solid var(--color-border);
+}
+
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Your initials logo on the left */
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+}
+
+/* Horizontal nav link list */
+.nav-links {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {   /* "active" is toggled by script.js on scroll */
+  color: var(--color-accent);
+}
+
+/* Hamburger button — hidden on desktop, shown on mobile */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+
+/* ----------------------------------------------------------------
+   4. HERO
+---------------------------------------------------------------- */
+#hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+/* Circular photo */
+.hero-photo-wrapper {
+  flex-shrink: 0;
+}
+
+.hero-photo {
+  width: 220px; /* was 220x220 */
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;                           /* crops to circle neatly */
+  border: 4px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+/* Text block */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.hero-greeting {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem); /* scales with viewport */
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.hero-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+}
+
+.hero-tagline {
+  max-width: 480px;
+  color: var(--color-text-muted);
+  font-weight: 300;
+  margin-top: var(--space-xs);
+}
+
+/* Primary CTA button */
+.btn-primary {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  padding: 0.65rem 1.6rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+
+/* ----------------------------------------------------------------
+   5. SHARED SECTION STYLES
+---------------------------------------------------------------- */
+
+/* Reusable wrapper applied to every content section */
+.section {
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* Slightly tinted background for alternating sections */
+.section-alt {
+  background: var(--color-bg-alt);
+}
+
+/* Centers and constrains section content */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Section heading with an accent underline */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+  position: relative;
+  display: inline-block;
+}
+
+/* The decorative underline under section titles */
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 40px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+
+/* ----------------------------------------------------------------
+   6. SKILLS
+---------------------------------------------------------------- */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;    /* pills wrap to next line automatically */
+  gap: var(--space-xs);
+}
+
+.skills-list li {
+  padding: 0.35rem 0.9rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;           /* pill shape */
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.skills-list li:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+
+/* ----------------------------------------------------------------
+   7. EXPERIENCE & EDUCATION CARDS
+   Shared styles — both sections use the same card layout.
+---------------------------------------------------------------- */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.exp-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.exp-card:hover {
+  box-shadow: 0 4px 20px rgba(44, 40, 37, 0.11);
+  transform: translateY(-2px);
+}
+
+/* Row: role/company on the left, date on the right */
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+  flex-wrap: wrap;              /* stacks on narrow screens */
+}
+
+.exp-role {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.exp-company {
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.exp-date {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;          /* keeps "Jan 2023 – Present" on one line */
+  padding-top: 2px;
+}
+
+.exp-desc {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-weight: 300;
+}
+
+
+/* ----------------------------------------------------------------
+   8. PROJECTS GRID
+---------------------------------------------------------------- */
+.projects-grid {
+  display: grid;
+  /* Creates as many columns as fit, each at least 280px wide */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Individual project card */
+.project-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition: box-shadow var(--transition), transform var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.project-card:hover {
+  box-shadow: 0 6px 24px rgba(44, 40, 37, 0.13);
+  transform: translateY(-3px);
+}
+
+.project-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Small tag pills on the card (e.g. "Python", "React") */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.project-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  background: var(--color-bg-alt);
+  color: var(--color-accent);
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 300;
+  flex-grow: 1;         /* pushes "Read more" to the bottom */
+}
+
+/* "Read more →" hint at the bottom of every card */
+.project-read-more {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: auto;
+}
+
+
+/* ----------------------------------------------------------------
+   9. MODAL
+   Hidden by default. script.js adds the ".open" class to show it.
+---------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;                     /* covers the full screen */
+  background: rgba(44, 40, 37, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: var(--space-md);
+
+  /* Hidden state */
+  opacity: 0;
+  pointer-events: none;         /* not clickable when hidden */
+  transition: opacity 0.25s ease;
+}
+
+/* Visible state — toggled by script.js */
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  max-width: 580px;
+  width: 100%;
+  box-shadow: var(--shadow-modal);
+  position: relative;
+
+  /* Slight upward animation when opening */
+  transform: translateY(12px);
+  transition: transform 0.25s ease;
+}
+
+.modal-overlay.open .modal {
+  transform: translateY(0);
+}
+
+/* × close button in the top-right corner */
+.modal-close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  line-height: 1;
+  transition: color var(--transition);
+}
+
+.modal-close:hover {
+  color: var(--color-text);
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: var(--space-xs);
+}
+
+/* Tag row inside the modal */
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: var(--space-sm);
+}
+
+.modal-desc {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-md);
+}
+
+/* Links row (GitHub, live demo, etc.) */
+.modal-links {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.modal-links a {
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  transition: background var(--transition), color var(--transition);
+}
+
+.modal-links a:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+
+/* ----------------------------------------------------------------
+   10. CONTACT
+---------------------------------------------------------------- */
+.contact-intro {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+  font-weight: 300;
+}
+
+.contact-links {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text);
+  transition: color var(--transition), transform var(--transition);
+}
+
+.contact-link:hover {
+  color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.contact-icon {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* ----------------------------------------------------------------
+   11. FOOTER
+---------------------------------------------------------------- */
+footer {
+  text-align: center;
+  padding: var(--space-md);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+
+/* ----------------------------------------------------------------
+   12. ANIMATIONS
+   Sections fade up into view as you scroll to them.
+   The ".visible" class is added by script.js (IntersectionObserver).
+---------------------------------------------------------------- */
+.section,
+#hero {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section.visible,
+#hero.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ----------------------------------------------------------------
+   13. RESPONSIVE — MOBILE
+---------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Stack hero photo above text on small screens */
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-md);
+  }
+
+  .hero-tagline {
+    margin: 0 auto;
+  }
+
+  /* Show hamburger, hide nav links by default */
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-sm) var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  /* When .open is added by script.js, show the dropdown */
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* Date stacks below company name on narrow screens */
+  .exp-header {
+    flex-direction: column;
+  }
+
+  /* Full-width project cards on mobile */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----------------------------------------------------------------
+   ADDITIONS: Project card image, modal image, exp-card link
+---------------------------------------------------------------- */
+ 
+/* Screenshot image at the top of a project card */
+.project-image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;         /* crops to fill without stretching */
+  display: block;
+  border-bottom: 1px solid var(--color-border);
+}
+ 
+/* Remove the generic card padding so the image bleeds edge-to-edge,
+   then re-add padding only to the text children */
+.project-card {
+  padding: 0;
+  overflow: hidden;          /* clips image to the card's rounded corners */
+}
+ 
+.project-card h3,
+.project-card .project-tags,
+.project-card p,
+.project-card .project-read-more {
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+ 
+.project-card h3      { padding-top: var(--space-md); }
+.project-read-more    { padding-bottom: var(--space-md); }
+ 
+/* Screenshot inside the modal */
+.modal-image {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border);
+}
+ 
+/* "See project →" link on an experience card */
+.exp-project-link {
+  display: inline-block;
+  margin-top: var(--space-xs);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color var(--transition);
+}
+ 
+.exp-project-link:hover {
+  color: var(--color-accent-hover);
+}
+ 

@@ -1,200 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        
-    </style>
-    <!--<label class="theme-switch">
-        <input type="checkbox" id="theme-toggle">
-        <span class="slider"></span>
-    </label>-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Engineering Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Åke Sterning — Portfolio</title>
+
+  <!-- Google Fonts: Playfair Display for headings, Lato for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <header>
-        <div class="container2 nav">
-            <a class="brand" href="#top" aria-label="Home">
-                <span class="brand-mark" aria-hidden="true"></span>
-                <span>Precision | Quality | Design</span>
-            </a>
-            <div class="nav-links" role="navigation" aria-label="Main">
-                <a href="#projects">Projects</a>
-                <a href="#about">About</a>
-                <a href="#status">Status</a>
-                <!--<a href="#contact" class="btn btn-accent">Contact</a>-->
-            </div>
+
+  <!-- ============================================================
+       NAVIGATION
+       Sticky top bar with links that smooth-scroll to each section.
+       The "active" class is added by script.js as you scroll.
+  ============================================================ -->
+  <header id="site-header">
+    <nav>
+      <span class="nav-logo">ÅS</span> <!-- Replace YN with your initials -->
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Hamburger button shown on mobile only -->
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO SECTION
+         Your photo, name, title, and a short tagline.
+         Replace the placeholder image with your own photo file.
+    ============================================================ -->
+    <section id="hero">
+      <div class="hero-inner">
+        <div class="hero-photo-wrapper">
+          <!--
+            Place profpic file in the same folder as index.html.
+          -->
+          <img
+            src="profilbild_bw.jpeg"
+            alt="Photo of Åke Sterning"
+            class="hero-photo"
+            onerror="this.src='https://placehold.co/220x220/1e2025/7dd3c0?text=Your+Photo'"
+          />
         </div>
-    </header>
-
-    <!-- First picture of me with a hero title and a box saying "see my projects" -->
-    <section id="hero" data-color="rgb(185, 187, 189)" data-parallax="3">
- 
-        <div class="parallax">
-            <div class="parallax-bg"></div>
-            <div class="parallax-content">
-
-                <div class="text-box">
-
-                    <h1>Hello, I'm Åke. Welcome to my engineering portfolio and website.</h1>
-                    <p>I will use this page to display and explain my projects regarding engineering, design, and potentially other topics.</p>
-
-                    
-                    <button class="button button2 center btn btn-accent">  
-                        <a href="#projects">See my projects.</a>
-                    </button>
-                </div>
-            </div>
+        <div class="hero-text">
+          <p class="hero-greeting">Hello, I'm</p>
+          <h1 class="hero-name">Åke Sterning</h1>       <!-- ← Replace -->
+          <p class="hero-title">Repair Design Engineer</p>   <!-- ← Replace -->
+          <p class="hero-tagline">
+            I love solving complex problems, having fun with people, and realize my ideas. I also happen to be addicted to good food and working out. <!-- ← Replace -->
+          </p>
+          <a href="#contact" class="btn-primary">Get in touch</a>
         </div>
+      </div>
     </section>
 
-    <!--<section>
-        <div class="text-box">
-            <h2>Reading this? Congratulations, you will soon be able to see my notsomuchtoshowfor-projects</h2>
-            <p> I will try to make this to make this my standardized project card.</p>
-
-            <p>Here's an image of a  small table lamp I printed to test the transparency of "transparent" PETG filament.</p>
-        </div>
-    </section>-->
-
-<!--<div class="text-box">
-        <div class="hero-inner">
-            <p class="projects">Trying to figure out how to make things look neat</p>
-        </div>
-    </div>
--->    
-    <!-- Projects -->
-    <section id="projects">
-
+    <!-- ============================================================
+         ABOUT SECTION
+         A brief personal bio. Keep it 2–4 sentences.
+    ============================================================ -->
+    <section id="about" class="section">
       <div class="container">
-        <h2>Selected Projects</h2>
-        <p class="sub">Example projects.</p>
-        <div class="grid projects" style="margin-top:1rem">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <p>
 
-            <!-- Project 1 -->
-            
-            <article class="project-card">
-                    <div class="project-media" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#B2BABB" />
-                            <stop offset="100%" stop-color="#ECEFF1" />
-                            <!--</linearGradient>-->
-                                <div class="project-meta center">
-                                    <div class="center">
-                                        <h3 class="center" style="margin:.50rem 1.50rem">Coffee Table Flower Lamp</h3>
-                                        <img src="images/flowerlamp-removebg-preview.png" width="180" height="180" alt="Flower Lamp" class="center">
-                                        <p class="sub" style="margin:.50rem 1.50rem 0">Test: Parametric model + 3D prototype for transparency analysis.</p>
-                                        
-                                    </div>
-                                    <!--<div class="tags">
-                                        <span class="badge">CAD</span>
-                                        <span class="badge">Prototyping</span>
-                                        <span class="badge">Manufacturing</span>
-                                    </div>-->
-                            </div>
-                        </defs>
-                        <g fill="none" stroke="url(#g1)" opacity=".9">
-                            <rect x="40" y="30" width="520" height="300" rx="8" ry="8" opacity=".25" />
-                            <path d="M60 60h480M60 120h480M60 180h480M60 240h480M60 300h480" opacity=".2" />
-                            <circle cx="300" cy="180" r="90" stroke-width="2" />
-                            <circle cx="300" cy="180" r="60" stroke-width="1.5" />
-                            <circle cx="300" cy="180" r="30" stroke-width="1.5" />
-                            <path d="M210 180H390M300 90V270" stroke-width="1.2" />
-                        </g>
-                    </div>
-                
-                <div class="project-meta justify-content:space-between">
-                    <div class="tags">
-                    <span class="badge">CAD</span>
-                    <span class="badge">Prototyping</span>
-                    <span class="badge">Manufacturing</span>
-                    </div>
-                    
-                </div>
-                <p class="center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et tempora sit temporibus labore repellendus id voluptates unde quia soluta itaque, pariatur quae nam explicabo nisi sed corrupti nihil asperiores ex.</p>
-                <p class="sub" style="margin:.50rem 1.50rem 0">Drawing:</p>
-                <img src="images/test.png" width="190" height="190" alt="Lamp drawing" class="center">
-            </article>
-
-
-            <!-- Project 2 -->
-            
-            <article class="project-card">
-                    <div class="project-media" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#B2BABB" />
-                            <stop offset="100%" stop-color="#ECEFF1" />
-                            <!--</linearGradient>-->
-                                <div class="project-meta center">
-                                    <div>
-                                        <h3 style="margin:.50rem 1.50rem">Basic Arduino Sonar Setup</h3>
-                                        <img src="images/sonar.png" width="190" height="190" alt="Sonar Setup" class="center">
-                                        <p class="sub" style="margin:.50rem 1.50rem 0">Test: Overview of connected sonar setup.</p>
-                                    </div>
-                            </div>
-                        </defs>
-                        <g fill="none" stroke="url(#g1)" opacity=".9">
-                            <rect x="40" y="30" width="520" height="300" rx="8" ry="8" opacity=".25" />
-                            <path d="M60 60h480M60 120h480M60 180h480M60 240h480M60 300h480" opacity=".2" />
-                            <circle cx="300" cy="180" r="90" stroke-width="2" />
-                            <circle cx="300" cy="180" r="60" stroke-width="1.5" />
-                            <circle cx="300" cy="180" r="30" stroke-width="1.5" />
-                            <path d="M210 180H390M300 90V270" stroke-width="1.2" />
-                        </g>
-                    </div>
-                
-                <div class="project-meta justify-content:space-between">
-                    <div class="tags">
-                    <span class="badge">Electrical</span>
-                    <span class="badge">RF</span>
-                    <span class="badge">Prototyping</span>
-                    </div>
-                    
-                </div>
-                <p class="center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est omnis ducimus quo eaque reprehenderit corrupti dolores laboriosam incidunt! Eaque, adipisci quasi culpa molestias ad quis deserunt mollitia a accusamus iste.</p>
-                <p class="sub" style="margin:.50rem 1.50rem 0">Electrical schematics:</p>
-                <img src="images/test.png" width="190" height="190" alt="Wiring scheme" class="center">
-            </article>
-
-            </div>
+            Born and raised team player - in the early days it was handball and football, now it's cross-functional projects and plans with friends. 
+            I'm driven by a constant desire to improve things, whether that's a technical system or myself. 
+            I get especially motivated by complex problems that demand real understanding and honest collaboration. 
+            And I try not to take things too seriously - a good cup of coffee and a blue sky go a long way. 
+          </p>
         </div>
-        
-    </section>
-        <div id="about">
-            <div class="container2 about center">
-                <div class="about-card">
-                    <h2>About</h2>
-                    <p>As I am learning how to write HTML, CSS and Javascript, this page will also be purposed as my learning tool. Therefore, the page will probably not be visibly pleasant for a while.</p>
-                    <p>I will try to make everything myself to learn as much as possible and document the status as I go.</p>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-        <section>
-            <div class="container2 center" id="status">
-                <div class="about-card">
-                    <h2>Website development status</h2>
-                    <p>Currently, I am trying to understand and create a nice layout for the project cards and so that they can expand when one clicks on them.</p>
-                    <p>I am happy that the parallax effect works for the background, however now I want to make more advanced things with it, like an inverted version with white and blue for the light theme version of the page.</p>
-                </div>
-            </div>
-        </section>
-    
-    
-    <footer> 
-        <div class="containter" style="display: flex; justify-content:space-between; align-items: center; gap: 1rem; flex-wrap: wrap;">
-            <small> © <span id="year"></span> Åke Sterning - All rights reserved </small>
-            <small>Built with HTML & CSS • Hosted on GitHub Pages</small>
-        </div>
-    </footer>
+    <!-- ============================================================
+         SKILLS SECTION
+    ============================================================ -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <ul class="skills-list">
+          <li>JavaScript</li>
+          <li>HTML &amp; CSS</li>
+          <li>Python</li>
+          <li>Ansys</li>
+          <li>Node.js</li>
+          <li>SQL</li>
+          <li>Git</li>
+          <li>Figma</li>
+          <li>C++</li>
+          <li>Matlab</li>
+          <li>SBCE</li>
+          <li>SAP</li>
+        </ul>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- ============================================================
+         WORK EXPERIENCE SECTION
+         Each job is a card. Copy the <div class="exp-card"> block
+         to add more positions. Put the most recent job first.
+    ============================================================ -->
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="exp-list">
+
+          <!-- Job 1 — most recent -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Repair Design Engineer</h3>       <!-- ← Replace -->
+                <p class="exp-company">GKN Aerospace Sweden</p>   <!-- ← Replace -->
+              </div>
+              <span class="exp-date">Nov 2025 – Present</span> <!-- ← Replace -->
+            </div>
+            <p class="exp-desc">
+              Developing repair, inspection and other airworthiness manuals on the Turbine Exhaust Case (TEC) for a majority of the world's commercial airplanes. I am using my innovation and creative mindset pushing to develop more user friendly process workflows. In parallell, I focus on learning structural analysis from colleagues and looking for ways to improve sustainability on-site. <!-- ← Replace -->
+            </p>
+          </div>
+
+          <!-- Job X -- fill it in -->
+          <div class="exp-card">
+            <a href="javascript:void(0)" data-open-project="my-project" class="exp-project-link">
+                See Master Thesis →
+            </a>
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Master Thesis - Busbar Fixation Development</h3>
+                <p class="exp-company">Volvo Trucks Technology</p>
+              </div>
+              <span class="exp-date">Sep 2024 – Jun 2025</span>
+            </div>
+            <p class="exp-desc">
+              Investigated and developed a new, Patent-pending busbar fixation method. This was achieved by working closely with stakeholders and finding "hidden" needs/information through interviews and brainstorming sessions. One thing I learned was: At the brainstorming sessions, the communication was not hindered by some formal interview barrier - but encouraged by creativity and a common goal in problem solving. 
+              Keywords: Electrical creepage, strength analysis, material- and design optimization.
+            </p>
+          </div>
+
+          <!-- Job X -- fill it in -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Volvo Power-Up Internship</h3>
+                <p class="exp-company">Volvo Trucks Technology</p>
+              </div>
+              <span class="exp-date">Apr 2024 – Jun 2025</span>
+            </div>
+            <p class="exp-desc">
+              Mentorship + Working as a mechanical design engineer on the TVPDC. Here, I developed an internal casting design guide for Volvo Electromobility. Started looking into what came to be my Master's thesis topic - Busbar Fixation Concept Development.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EDUCATION SECTION
+         Same pattern as experience. Add more cards as needed.
+    ============================================================ -->
+    <section id="education" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="exp-list">
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Master's Degree, Product Development</h3>  <!-- ← Replace -->
+                <p class="exp-company">Chalmers Univerity of Technology</p>              <!-- ← Replace -->
+              </div>
+              <span class="exp-date">2023 – 2025</span> <!-- ← Replace -->
+            </div>
+            <p class="exp-desc">
+              Thesis @Volvo Trucks - Busbar Fixation Concept Development &amp; structure analysis on TVPDC. 
+              Deep focus on understanding human needs and the key to successful innovation. Further, robot control and FEM courses.
+              Exchange semester @ Universitat Politècnica de València. 
+             <!-- ← Replace or delete -->
+            </p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Bachelor's Degree, Mechanical Engineering</h3>  <!-- ← Replace -->
+                <p class="exp-company">Chalmers Univerity of Technology</p>              <!-- ← Replace -->
+              </div>
+              <span class="exp-date">2020 – 2023</span> <!-- ← Replace -->
+            </div>
+            <p class="exp-desc">
+              Optional coursework: Object Oriented Programming (OOP), Finite Element Method (FEM)
+               <!-- ← Replace or delete -->
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROJECTS SECTION
+         Cards are generated by script.js from the PROJECTS array.
+         You do NOT edit HTML here — just edit the array in script.js.
+         Clicking a card opens a modal with the full project details.
+    ============================================================ -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid" id="projects-grid">
+          <!-- Cards are injected here by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT SECTION
+         Shows your LinkedIn and GitHub as icon + text links.
+         Replace the href values with your real profile URLs.
+    ============================================================ -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="contact-intro">
+          Feel free to reach out — I'm always open to interesting conversations.
+        </p>
+        <div class="contact-links">
+
+          <!-- LinkedIn -->
+          <a
+            href="https://www.linkedin.com/in/ake-sterning/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link"
+          >
+            <!-- LinkedIn SVG icon (inline so no external dependency) -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contact-icon" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+
+          <!-- GitHub -->
+          <a
+            href="https://github.com/matlabwarrior"  
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link"
+          >
+            <!-- GitHub SVG icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contact-icon" aria-hidden="true">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+            GitHub
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       PROJECT MODAL
+       Hidden by default. script.js fills it in and shows it
+       when a project card is clicked.
+  ============================================================ -->
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <img class="modal-image" src="" alt="" />
+      <h2 id="modal-title" class="modal-title"></h2>
+      <p class="modal-tags"></p>
+      <p class="modal-desc"></p>
+      <div class="modal-links"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Built by Your Name <!-- ← Replace --> &middot; <span id="footer-year"></span></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
