@@ -23,22 +23,22 @@
 ---------------------------------------------------------------- */
 const PROJECTS = [
   {
-    id: "my-project",           // ← new, unique per project
-    image: "images/frontpage.png",   // ← new, or "" if none yet
+    id: "thesis-project",           
+    image: "images/frontpage.png",   
     title: "Master Thesis",               
-    tags: ["Ansys", "X"],          
+    tags: ["Ansys Workbench", "Creo"],          
     summary: "Master thesis @ Volvo Trucks Technology - Electromobility", 
-    detail: `Investigated and developed a new, Patent-pending busbar fixation method. This was achieved by working closely with stakeholders and finding "hidden" needs/information through interviews and brainstorming sessions. One thing I learned was: At the brainstorming sessions, the communication was not hindered by some formal interview barrier - but encouraged by creativity and a common goal in problem solving. 
+    detail: `Busbar Fixation Concept Development &amp; structure analysis on TVPDC. Investigated and developed a new, Patent-pending busbar fixation method. This was achieved by working closely with stakeholders and finding "hidden" needs/information through interviews and brainstorming sessions. One thing I learned was: At the brainstorming sessions, the communication was not hindered by some formal interview barrier - but encouraged by creativity and a common goal in problem solving. 
               Keywords: Electrical creepage, strength analysis, material- and design optimization.`, 
     links: [
       { label: "Link to thesis", url: "https://odr.chalmers.se/items/de957476-4715-4f94-ad95-ba9055f16881" }, 
-      { label: "Live Demo", url: "" },  // ← Replace url or leave "" to hide this link
+      { label: "Live Demo", url: "" },  //
     ],
       
   },
   {
-    id: "Matify",      // ← add, unique per project, no spaces
-    image: "",   // ← add, or "" if no image yet
+    id: "Matify",      // unique per project, no spaces
+    image: "",   // "" if no image yet
     title: "Matify",
     tags: ["Python", "API"],
     summary: "Rational Recipe Recommender.",
@@ -49,7 +49,7 @@ const PROJECTS = [
     ],
   },
   {
-    id: "SMA200",      // ← add, unique per project, no spaces
+    id: "SMA200",      // unique per project, no spaces
     image: "",   
     title: "SMA200 Graph LCD Project",
     tags: ["Python", "Electronics hardware", "Data Analysis"],
